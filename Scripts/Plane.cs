@@ -21,12 +21,11 @@ public class Plane : MonoBehaviour
     void Update()
     {
         PlaneUp();
-        MoveTest(); 
     }
 
     private void PlaneUp()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.velocity = Vector2.up * speed;
         }
@@ -44,24 +43,6 @@ public class Plane : MonoBehaviour
 
     private void RestartGame()
     {
-        SceneManager.LoadScene(0);        
-    }
-
-    private void MoveTest()
-    {
-
-
-        if (Input.GetKeyDown(KeyCode.UpArrow) || (Input.GetKey(KeyCode.W)))
-        {
-
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow) || (Input.GetKey(KeyCode.A)))
-        {
-            transform.eulerAngles += new Vector3(0, 0, rotationSpeed);
-        }
-        else if (Input.GetKey(KeyCode.RightArrow) || (Input.GetKey(KeyCode.D)))
-        {
-            transform.eulerAngles += new Vector3(0, 0, -rotationSpeed);
-        }
+        SceneManager.LoadScene(0);
     }
 }
