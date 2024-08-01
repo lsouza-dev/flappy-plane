@@ -374,7 +374,8 @@ MonoBehaviour:
   timer: 1
   timerToSpawn: 4
   timeToDestroy: 0
-  yOffset: 4
+  yMin: -1.32
+  yMax: 2.64
   pos: {x: 0, y: 0, z: 0}
 --- !u!1 &1206868949
 GameObject:

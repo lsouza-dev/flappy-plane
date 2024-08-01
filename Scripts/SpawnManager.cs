@@ -13,7 +13,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float timerToSpawn = 1f;
     [SerializeField] private float timeToDestroy;
 
-    [SerializeField] private float yOffset;
+    [SerializeField] private float yMin;
+    [SerializeField] private float yMax;
 
     [SerializeField] private Vector3 pos;
 
@@ -27,14 +28,13 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        float posInicial = 16f;
 
-        Vector2 randomPos = new Vector2(posInicial, Random.Range(-yOffset, yOffset));
+        Vector2 randomPos = new Vector2(pos.x, Random.Range(yMin, yMax));
 
         if (timer <= 0f)
         {
-            var spawnedObject = Instantiate(obstaclePrefab, randomPos, Quaternion.identity);
-
+            GameObject obstacleInstance = Instantiate(obstaclePrefab, randomPos, Quaternion.identity);
+            Destroy(obstacleInstance,timeToDestroy);
             timerToSpawn = Random.Range(2, 4);
             timer = timerToSpawn;
 
