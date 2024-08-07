@@ -22,7 +22,7 @@ public class SpawnManager : MonoBehaviour
 
     [SerializeField] private Vector3 pos;
 
-    [SerializeField] private float points = 1f;
+    
     [SerializeField] private int aliveSeconds;
     
     // Start is called before the first frame update
@@ -35,7 +35,7 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
         SpawnObstacles();
-        CountPoints();
+        
     }
 
     private void SpawnObstacles()
@@ -51,14 +51,7 @@ public class SpawnManager : MonoBehaviour
             timer = timerToSpawn;
 
         }
-    }
-
-    private void CountPoints()
-    {
-        points += Time.deltaTime;
-
-    }
-    
+    } 
 }
 
 
