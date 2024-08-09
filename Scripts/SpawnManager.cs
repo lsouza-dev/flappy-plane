@@ -38,6 +38,7 @@ public class SpawnManager : MonoBehaviour
         
     }
 
+
     private void SpawnObstacles()
     {
         timer -= Time.deltaTime;

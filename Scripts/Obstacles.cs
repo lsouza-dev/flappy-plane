@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Obstacles : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] public float speed;
     private Rigidbody2D rb;
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -20,6 +22,6 @@ public class Obstacles : MonoBehaviour
 
     private void DefaultMove()
     {
-        rb.velocity = new Vector2(-speed, 0);
+        rb.velocity = new Vector2(-speed - gameManager.ReturnLevel(), 0);
     }
 }
