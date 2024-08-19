@@ -12,11 +12,18 @@ public class Plane : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float restartTime;
-    
+    [SerializeField] private GameObject smoke;
+    [SerializeField] private GameObject smokePrefab;
+
+
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+    }
+    void Start()
+    {
     }
 
     // Update is called once per frame
@@ -30,6 +37,7 @@ public class Plane : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.velocity = Vector2.up * speed;
+            CreateSmoke();
         }
     }
 
@@ -46,5 +54,13 @@ public class Plane : MonoBehaviour
     private void RestartGame()
     {
         SceneManager.LoadScene(0);
+    }
+
+    private void CreateSmoke()
+    {
+        Vector2 pos = new Vector2(transform.position.x, transform.position.y);
+        smoke = Instantiate(smokePrefab, pos, Quaternion.identity);
+
+        Destroy(smoke,2f);
     }
 }
