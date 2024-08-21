@@ -12,6 +12,7 @@ public class Plane : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float restartTime;
+
     [SerializeField] private GameObject smoke;
     [SerializeField] private GameObject smokePrefab;
 
@@ -20,7 +21,7 @@ public class Plane : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        
     }
     void Start()
     {
@@ -53,7 +54,7 @@ public class Plane : MonoBehaviour
 
     private void RestartGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     private void CreateSmoke()

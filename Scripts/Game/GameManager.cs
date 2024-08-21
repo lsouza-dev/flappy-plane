@@ -15,10 +15,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float nextLevel = 10f;
     // Start is called before the first frame update
 
+    [SerializeField] private AudioSource gameMusic;
+    [SerializeField] private AudioClip music;
+
     private Obstacles obstacles;
     void Start()
     {
         obstacles = GetComponent<Obstacles>();
+
     }
 
     // Update is called once per frame
